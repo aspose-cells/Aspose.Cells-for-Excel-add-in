@@ -2,7 +2,9 @@
 
 Write-Host "Remove AsposeCellsExcelAddIn service"
 Stop-Service -Name AsposeCellsExcelAddInServices  2> error.log
-Remove-Service -Name AsposeCellsExcelAddInServices 2> error.log
+ 
+sc.exe delete "AsposeCellsExcelAddInServices" 2> error.log
+
 
 Write-Host "Remove Share folder : AsposeCellsWebAddIn"
 Remove-SmbShare -Name "AsposeCellsWebAddIn" -Force 2> error.log
